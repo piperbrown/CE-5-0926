@@ -1,0 +1,10 @@
+#! /bin/sh 
+for file in "$1"/*; do
+        if [ -f "$file" ]; then
+                echo "Processing File: $file";
+                FILESIZE=$(du -sh "${file}" | cut -f1);
+                echo "File Size: $FILESIZE bytes";
+                WORDCOUNT=$(wc -w $file | cut -d " " -f 1);
+                echo "Word Count: $WORDCOUNT\n";
+        fi
+done
